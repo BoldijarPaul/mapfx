@@ -7,6 +7,7 @@ import repository.BaseRepository;
 import repository.ClientRepository;
 import repository.MovieRepository;
 import repository.RentRepository;
+import util.Utils;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -21,16 +22,13 @@ import java.util.stream.Stream;
 public class ClientController implements IClientController {
     private final BaseRepository<Client> clientRepository;
 
-    private int lastClientId = 0;
-
     public ClientController(BaseRepository<Client> clientRepository) {
         this.clientRepository = clientRepository;
-        lastClientId = clientRepository.listAll().size();
     }
 
     @Override
     public void addClient(String name, String address) {
-        clientRepository.add(new Client(lastClientId++, name, address));
+        clientRepository.add(new Client(Utils.randomInt(), name, address));
     }
 
     @Override
@@ -75,5 +73,9 @@ public class ClientController implements IClientController {
             Collections.reverse(clients);
         }
         return clients;
+    }
+
+    public Client getClient(int id) {
+       return clientRepository.getFromId(id);
     }
 }

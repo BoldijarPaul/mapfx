@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="444.0" prefWidth="865.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.FullAppView">
+   <children>
+      <VBox layoutX="14.0" layoutY="14.0" prefHeight="328.0" prefWidth="274.0">
+         <children>
+            <ListView fx:id="clientList" prefHeight="184.0" prefWidth="274.0" />
+            <TextField fx:id="clientIdInput" editable="false" promptText="Client id" />
+            <TextField fx:id="clientNameInput" promptText="Client name" />
+            <TextField fx:id="clientAddressInput" promptText="Client address" />
+            <Button mnemonicParsing="false" onAction="#addNewClient" prefHeight="25.0" prefWidth="274.0" text="Create" />
+            <Button mnemonicParsing="false" onAction="#updateSelectedClient" prefHeight="25.0" prefWidth="282.0" text="Update selected" />
+            <Button mnemonicParsing="false" onAction="#deleteSelectedClient" prefHeight="25.0" prefWidth="282.0" text="Delete selected" />
+         </children>
+      </VBox>
+      <VBox layoutX="310.0" layoutY="14.0" prefHeight="328.0" prefWidth="274.0">
+         <children>
+            <ListView fx:id="movieList" prefHeight="184.0" prefWidth="274.0" />
+            <TextField fx:id="movieIdInput" editable="false" promptText="Movie id" />
+            <TextField fx:id="movieDirectorInput" promptText="Movie director" />
+            <TextField fx:id="movieTypeInput" promptText="Movie type" />
+            <Button mnemonicParsing="false" onAction="#addNewMovie" prefHeight="25.0" prefWidth="274.0" text="Create" />
+            <Button mnemonicParsing="false" onAction="#updateSelectedMovie" prefHeight="25.0" prefWidth="282.0" text="Update selected" />
+            <Button mnemonicParsing="false" onAction="#deleteSelectedMovie" prefHeight="25.0" prefWidth="282.0" text="Delete selected" />
+         </children>
+      </VBox>
+      <VBox layoutX="598.0" layoutY="14.0" prefHeight="328.0" prefWidth="255.0">
+         <children>
+            <ListView fx:id="rentList" prefHeight="184.0" prefWidth="274.0" />
+            <TextField fx:id="rentIdInput" editable="false" promptText="Rental Id" />
+            <TextField fx:id="rentMovieId" editable="false" promptText="Movie id" />
+            <TextField fx:id="rentClientId" editable="false" promptText="Client id" />
+            <Button mnemonicParsing="false" onAction="#addNewRent" prefHeight="25.0" prefWidth="274.0" text="Create from selected clients &amp; movies" />
+            <Button mnemonicParsing="false" onAction="#deleteSelectedRent" prefHeight="25.0" prefWidth="282.0" text="Delete selected" />
+         </children>
+      </VBox>
+   </children>
+</Pane>

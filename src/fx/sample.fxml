@@ -1,8 +1,23 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<GridPane fx:controller="fx.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-</GridPane>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.MovieView">
+   <children>
+      <ListView fx:id="listView" maxHeight="250.0" maxWidth="500.0" prefHeight="250.0" prefWidth="500.0" />
+      <TextField fx:id="idTextField" editable="false" promptText="id" />
+      <TextField fx:id="addressTextField" promptText="name" />
+      <TextField fx:id="nameTextField" promptText="address" />
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="addButton" mnemonicParsing="false" onAction="#addNewItem" prefWidth="166.0" text="Add" />
+            <Button fx:id="updateButton" mnemonicParsing="false" onAction="#updateSelectedItem" prefWidth="166.0" text="Update" />
+            <Button fx:id="deleteButton" alignment="CENTER" mnemonicParsing="false" onAction="#deleteSelectedItem" prefWidth="166.0" text="Delete" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

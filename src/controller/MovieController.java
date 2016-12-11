@@ -1,9 +1,8 @@
 package controller;
 
-import model.Client;
 import model.Movie;
 import repository.BaseRepository;
-import repository.MovieRepository;
+import util.Utils;
 
 import java.util.Collections;
 import java.util.List;
@@ -16,16 +15,14 @@ import java.util.stream.Stream;
 public class MovieController implements IMovieController {
 
     private final BaseRepository<Movie> movieRepository;
-    private int lastMovieId = 0;
 
     public MovieController(BaseRepository<Movie> movieRepository) {
         this.movieRepository = movieRepository;
-        this.lastMovieId = movieRepository.listAll().size();
     }
 
     @Override
     public void addMovie(String director, String type) {
-        movieRepository.add(new Movie(lastMovieId++, director, type));
+        movieRepository.add(new Movie(Utils.randomInt(), director, type));
     }
 
     @Override
@@ -71,4 +68,9 @@ public class MovieController implements IMovieController {
         }
         return movies;
     }
+
+    public Movie getMovie(int id) {
+        return movieRepository.getFromId(id);
+    }
+
 }

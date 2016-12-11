@@ -44,5 +44,15 @@ public class BaseRepository<T extends IndexedModel> implements Crudable<T> {
         return new ArrayList<>(mItems);
     }
 
+    public T getFromId(int id) {
+        List<T> items = listAll();
+        for (T item : items) {
+            if (item.getId() == id) {
+                return item;
+            }
+        }
+        return null;
+    }
+
 
 }

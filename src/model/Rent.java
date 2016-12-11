@@ -8,13 +8,38 @@ public class Rent extends IndexedModel {
     private int clientId;
     private int movieId;
 
+    private Client client;
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
+    }
+
+    private Movie movie;
+
+
     @Override
     public String toString() {
-        return "Rent{" +
-                "id=" + id +
-                ", clientId=" + clientId +
-                ", movieId=" + movieId +
-                '}';
+        String output = "Id: " + id + " client id: " + clientId;
+        if (client != null) {
+            output += " Client name: " + client.getName();
+        }
+        output += " movie id: " + movieId;
+        if (movie != null) {
+            output += " movie director: " + movie.getDirector();
+        }
+        return output;
     }
 
     @Override
