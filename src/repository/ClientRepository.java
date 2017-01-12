@@ -9,6 +9,11 @@ import util.Utils;
 public class ClientRepository extends BaseIORepository<Client> {
 
     @Override
+    protected void save() {
+        super.save();
+    }
+
+    @Override
     String getPath() {
         return getClass().getName();
     }

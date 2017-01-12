@@ -160,7 +160,6 @@ public class FullAppView extends BaseApplication implements Initializable {
         clientIdInput.setText(newValue.getId() + "");
         clientNameInput.setText(newValue.getName());
         clientAddressInput.setText(newValue.getAddress());
-        Utils.saveXml(newValue, "f.xml");
     }
 
     private void selectedItem(Rent newValue) {

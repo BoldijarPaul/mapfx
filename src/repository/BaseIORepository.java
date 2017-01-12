@@ -12,11 +12,11 @@ import java.util.List;
 /* BaseRepository<T extends IndexedModel> implements Crudable<T> */
 abstract class BaseIORepository<T extends IndexedModel> extends BaseRepository {
 
-    private void save() {
+    protected void save() {
         Utils.writeToFile(mItems, getPath());
     }
 
-    private void load() {
+    protected void load() {
         mItems = Utils.readFromFile(getPath());
     }
 
