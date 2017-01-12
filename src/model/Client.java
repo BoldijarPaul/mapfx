@@ -1,8 +1,11 @@
 package model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Created by Paul on 10/8/2016.
  */
+@XmlRootElement(name = "client")
 public class Client extends IndexedModel{
     private int id;
     private String name;

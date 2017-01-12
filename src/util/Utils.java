@@ -1,8 +1,7 @@
 package util;
 
-import com.fasterxml.jackson.xml.XmlMapper;
+import model.Client;
 
-import javax.xml.stream.XMLStreamWriter;
 import java.io.*;
 
 /**

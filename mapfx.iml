@@ -12,5 +12,6 @@
     <orderEntry type="library" name="jackson-all-1.9.0" level="project" />
     <orderEntry type="library" name="jackson-xml-databind-0.5.0" level="project" />
     <orderEntry type="library" name="stax2-api" level="project" />
+    <orderEntry type="library" name="javax.xml.bind" level="project" />
   </component>
 </module>
