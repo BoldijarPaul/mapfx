@@ -38,7 +38,7 @@ public class MovieController implements IMovieController {
     @Override
     public List<Movie> getMoviesByDirector(String director) {
         List<Movie> clients = movieRepository.listAll();
-        return clients.stream().filter(client -> client.getDirector().equals(director)).collect(Collectors.toList());
+        return clients.stream().filter(client -> client.getDirector().contains(director)).collect(Collectors.toList());
     }
 
     @Override

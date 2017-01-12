@@ -4,6 +4,8 @@ import controller.ClientController;
 import controller.MovieController;
 import controller.RentController;
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Client;
 import model.Movie;
@@ -21,6 +24,7 @@ import repository.ClientRepository;
 import repository.MovieRepository;
 import repository.RentRepository;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import util.Utils;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -54,6 +58,11 @@ public class FullAppView extends BaseApplication implements Initializable {
     private TextField rentClientId;
     @FXML
     private TextField rentMovieId;
+
+    @FXML
+    private TextField clientNameSearch;
+    @FXML
+    private TextField movieDirectorSearch;
 
     private ClientController clientController;
     private MovieController movieController;
@@ -151,6 +160,7 @@ public class FullAppView extends BaseApplication implements Initializable {
         clientIdInput.setText(newValue.getId() + "");
         clientNameInput.setText(newValue.getName());
         clientAddressInput.setText(newValue.getAddress());
+        Utils.saveXml(newValue, "f.xml");
     }
 
     private void selectedItem(Rent newValue) {
@@ -210,6 +220,9 @@ public class FullAppView extends BaseApplication implements Initializable {
         refreshMovies();
         refreshRents();
 
+        searchClientEvent();
+        searchMovieEvent();
+
         clientList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             selectedItem(newValue);
         });
@@ -218,6 +231,32 @@ public class FullAppView extends BaseApplication implements Initializable {
         });
         rentList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             selectedItem(newValue);
+        });
+    }
+
+    private void searchMovieEvent() {
+        movieDirectorSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() == 0) {
+                refreshMovies();
+            } else {
+                ObservableList data =
+                        FXCollections.observableArrayList();
+                data.addAll(movieController.getMoviesByDirector(newValue));
+                movieList.setItems(data);
+            }
+        });
+    }
+
+    private void searchClientEvent() {
+        clientNameSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() == 0) {
+                refreshClients();
+            } else {
+                ObservableList data =
+                        FXCollections.observableArrayList();
+                data.addAll(clientController.getClientsByName(newValue));
+                clientList.setItems(data);
+            }
         });
     }
 }

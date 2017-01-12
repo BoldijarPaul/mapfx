@@ -50,7 +50,7 @@ public class ClientController implements IClientController {
     @Override
     public List<Client> getClientsByName(String name) {
         List<Client> clients = clientRepository.listAll();
-        return clients.stream().filter(client -> client.getName().equals(name)).collect(Collectors.toList());
+        return clients.stream().filter(client -> client.getName().contains(name)).collect(Collectors.toList());
     }
 
     @Override

@@ -7,6 +7,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="jackson-dataformat-xml-2.7.1" level="project" />
+    <orderEntry type="library" name="jackson-core-2.8.5" level="project" />
+    <orderEntry type="library" name="jackson-all-1.9.0" level="project" />
+    <orderEntry type="library" name="jackson-xml-databind-0.5.0" level="project" />
+    <orderEntry type="library" name="stax2-api" level="project" />
   </component>
 </module>
-

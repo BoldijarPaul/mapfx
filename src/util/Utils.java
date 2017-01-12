@@ -1,5 +1,8 @@
 package util;
 
+import com.fasterxml.jackson.xml.XmlMapper;
+
+import javax.xml.stream.XMLStreamWriter;
 import java.io.*;
 
 /**
@@ -7,9 +10,10 @@ import java.io.*;
  */
 public class Utils {
 
-    public static int randomInt(){
-        return (int)(Math.random()*100000);
+    public static int randomInt() {
+        return (int) (Math.random() * 100000);
     }
+
     public static void writeToFile(Object object, String path) {
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(path);
