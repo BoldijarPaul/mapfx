@@ -1,6 +1,7 @@
 package controller;
 
 import model.Movie;
+import model.Rent;
 import repository.BaseRepository;
 import util.Utils;
 
@@ -50,6 +51,37 @@ public class MovieController implements IMovieController {
     @Override
     public List<Movie> getMovies() {
         return movieRepository.listAll();
+    }
+
+    @Override
+    public Movie getMostRentedMovie(List<Rent> rents) {
+        List<Movie> movies = movieRepository.listAll();
+        if (rents.size() == 0 || movies.size() == 0) {
+            return null;
+        }
+        int[] rentedTimes = new int[movies.size()];
+
+        // calculam de cate ori a fost inchiriat fiecare film
+        rents.forEach(rent -> {
+            for (int i = 0; i < movies.size(); i++) {
+                if (rent.getMovieId() == movies.get(i).getId()) {
+                    rentedTimes[i]++;
+                }
+            }
+        });
+        // cautam filmul cu nr maxim de inchirieri
+        int maxRentedTimes = -1;
+        int maxRentedMovieIndex = -1;
+        for (int i = 0; i < movies.size(); i++) {
+            if (rentedTimes[i] > maxRentedTimes) {
+                maxRentedTimes = rentedTimes[i];
+                maxRentedMovieIndex = i;
+            }
+        }
+        if (maxRentedMovieIndex == -1) {
+            return null;
+        }
+        return movies.get(maxRentedMovieIndex);
     }
 
     @Override

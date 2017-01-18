@@ -8,6 +8,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -257,5 +258,10 @@ public class FullAppView extends BaseApplication implements Initializable {
                 clientList.setItems(data);
             }
         });
+    }
+
+    public void getMostRentedMovie(ActionEvent actionEvent) {
+        Movie movie = movieController.getMostRentedMovie(rentController.getRents());
+        showMessage(movie == null ? "There is no most rented video." : "Most rented: " + movie.toString());
     }
 }

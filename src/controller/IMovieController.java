@@ -1,6 +1,7 @@
 package controller;
 
 import model.Movie;
+import model.Rent;
 
 import java.util.List;
 
@@ -17,6 +18,8 @@ public interface IMovieController {
     List<Movie> getMoviesByDirector(String director);
 
     List<Movie> getMoviesByType(String type);
+
+    Movie getMostRentedMovie(List<Rent> rents);
 
     List<Movie> getMovies();
 

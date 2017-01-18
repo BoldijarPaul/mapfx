@@ -29,6 +29,7 @@
             <Button mnemonicParsing="false" onAction="#addNewMovie" prefHeight="25.0" prefWidth="274.0" text="Create" />
             <Button mnemonicParsing="false" onAction="#updateSelectedMovie" prefHeight="25.0" prefWidth="282.0" text="Update selected" />
             <Button mnemonicParsing="false" onAction="#deleteSelectedMovie" prefHeight="25.0" prefWidth="282.0" text="Delete selected" />
+            <Button mnemonicParsing="false" onAction="#getMostRentedMovie" prefHeight="25.0" prefWidth="282.0" text="Most rented movie" />
             <TextField fx:id="movieDirectorSearch" promptText="Search movie by director" />
          </children>
       </VBox>
